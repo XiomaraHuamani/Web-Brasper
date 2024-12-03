@@ -4,7 +4,6 @@ const exchangeRates = {
   "USD-BRL": 5.42,
   "BRL-USD": 0.181,
 };
-
 export default exchangeRates;
 
 
