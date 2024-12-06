@@ -105,7 +105,7 @@ const MobileMenu = () => {
                 <option value="pt">Português</option>
               </select>
             </li>
-            {/* <li className="dropdown">
+            <li className="dropdown">
               <Link href="/login" onClick={() => active("login")}>
                 {t.header.login} <i className="fas fa-long-arrow-right" />
               </Link>
@@ -114,7 +114,7 @@ const MobileMenu = () => {
               <Link href="/singup" onClick={() => active("singup")}>
               Registrate <i className="fas fa-long-arrow-right" />
               </Link>
-            </li> */}
+            </li>
           </ul>
         </Accordion.Collapse>
       </Accordion>
