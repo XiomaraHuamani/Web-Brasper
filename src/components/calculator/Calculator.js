@@ -398,11 +398,7 @@ const Calculator = () => {
 
   return (
     <div className="calculator-container m-3 text-center">
-      <h5 style={{
-            color: "#066ac9",
-            fontSize: "30px",
-            paddingBottom: "10px",
-          }}>{t.calculadora.Titulo}</h5>
+      <h5 >{t.calculadora.Titulo}</h5>
       {/* <Image
           src={Logo}
           style={{  

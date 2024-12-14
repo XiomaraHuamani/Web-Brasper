@@ -19,8 +19,10 @@
         "description": "Ofrecemos servicios excelentes."
     },
     "heroSection": {
-        "title": "!Tu envio llega en Minutos y Direto a tu Cuenta de Destino!",
-        "description": "confianza, rapidez y seguridad en sus envíos",
+        "title1": "!Tu envio llega en",
+        "title2": "Minutos",
+        "title3": "y Direto a tu Cuenta de Destino!",
+        "description": "Confianza, rapidez y seguridad en sus envíos",
         "buttonText": "INVITA AQUI y GANA TU BONUS BRASPER"
     },
     "projectSection": {

@@ -19,8 +19,10 @@
         "description": "We provide excellent services."
     },
     "heroSection": {
-        "title": "Your shipment arrives in Minutes and Directly to your Destination Account!",
-        "description": "confidence, speed and security in our shipments",
+        "title1": "Your shipment arrives in",
+        "title2": "Minutes",
+        "title3": "and Directly to your Destination Account!",
+        "description": "Confidence, speed and security in our shipments",
         "buttonText": "INVITE HERE and EARN YOUR BRASPER BONUS"
     },
     "projectSection": {
