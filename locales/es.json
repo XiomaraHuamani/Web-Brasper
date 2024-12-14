@@ -14,17 +14,14 @@
         "hours": "Atendemos de 8:30 am a 14:00 pm",
         "login": "Acceso"
     },
-    "footer": {
-        "allRightsReserved": "Todos los derechos reservados."
-    },
     "homepage": {
         "welcome": "¡Bienvenido a nuestro sitio web!",
         "description": "Ofrecemos servicios excelentes."
     },
     "heroSection": {
-        "title": "Brasper Transferencias",
-        "description": "Envíos de Soles, Dólares, y Reales a Brasil y Perú al mejor tipo de cambio y con una tarifa premium para sus envíos!",
-        "buttonText": "Invita aquí"
+        "title": "!Tu envio llega en Minutos y Direto a tu Cuenta de Destino!",
+        "description": "confianza, rapidez y seguridad en sus envíos",
+        "buttonText": "INVITA AQUI y GANA TU BONUS BRASPER"
     },
     "projectSection": {
         "title": "Transferencias Internacionales",
@@ -43,7 +40,7 @@
         "title": "Últimos servicios",
         "subtitle": "Brindamos las mejores cotizaciones en transferencias",
         "service1Title": "Transferencias",
-        "service1Description": "Una transferencia bancaria es un proceso mediante el cual se mueve dinero de una cuenta bancaria a otra.",
+        "service1Description": "confianza, rapidez y seguridad en sus envíos",
         "service2Title": "Cotizaciones",
         "service2Description": "En el contexto de una casa de cambio o una entidad que se dedica al cambio de divisas, una cotización se refiere al valor o tasa a la cual se puede cambiar una moneda por otra en un momento determinado.",
         "service3Title": "Envíos",
@@ -160,7 +157,7 @@
     "calculadora": {
         "EnviarP": "Enviar",
         "RecibirP": "Recibir",
-        "Titulo": "Ingrese el Monto a calcular",
+        "Titulo": "Ingrese el Monto a Enviar",
         "Total": "Total a Enviar",
         "Tipo": "Tipo de Cambio",
         "Recibe": "Recibe",

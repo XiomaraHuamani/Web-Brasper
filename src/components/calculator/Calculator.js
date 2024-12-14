@@ -398,7 +398,11 @@ const Calculator = () => {
 
   return (
     <div className="calculator-container m-3 text-center">
-      <h5>{t.calculadora.Titulo}</h5>
+      <h5 style={{
+            color: "#066ac9",
+            fontSize: "30px",
+            paddingBottom: "10px",
+          }}>{t.calculadora.Titulo}</h5>
       {/* <Image
           src={Logo}
           style={{  
@@ -407,15 +411,7 @@ const Calculator = () => {
           }}
       /> */}
       <div className="currency-inputs r pb-4 pt-2">
-        <a
-          style={{
-            color: "rgba(0, 0, 255, 1)",
-            fontSize: "20px",
-            paddingBottom: "50px",
-          }}
-        >
-          {t.calculadora.EnviarP}
-        </a>
+       
         <div className="currency-row pb-2">
           {/* Selector de moneda "Desde" */}
           <Select
@@ -494,7 +490,7 @@ const Calculator = () => {
 
         <a
           style={{
-            color: "rgba(0, 0, 255, 1)",
+            color: "#066ac9",
             fontSize: "20px",
             paddingBottom: "50px",
           }}

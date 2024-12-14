@@ -19,14 +19,14 @@
         "description": "Oferecemos serviços excelentes."
     },
     "heroSection": {
-        "title": "Brasper Transferências",
-        "description": "Envie Soles, Dólares e Reais para o Brasil e Peru com a melhor taxa de câmbio e com uma tarifa premium para suas transferências!",
-        "buttonText": "Convide aqui"
+        "title": "Sua remessa chega em minutos e diretamente na sua conta de destino!",
+        "description": "confiança, rapidez e segurança nos seus envios",
+        "buttonText": "CONVITE AQUI e GANHE SEU BÔNUS BRASPER"
     },
     "projectSection": {
         "title": "Transferências Internacionais",
         "item1Title": "Tempo de Transferência",
-        "item1Description": "Dependendo do método utilizado, as transferências de soles para reais podem levar de algumas horas a vários dias úteis. Casas de câmbio especializadas e plataformas fintech costumam oferecer tempos de processamento mais rápidos em comparação com os bancos tradicionais.",
+        "item1Description": "confiança, rapidez e segurança nos seus envios",
         "item1Point1": "Tempos de Processamento Mais Rápidos",
         "item1Point2": "Taxas de Câmbio Mais Favoráveis",
         "item2Title": "Segurança",
@@ -40,7 +40,7 @@
         "title": "Últimos serviços",
         "subtitle": "Fornecemos as melhores cotações para transferências",
         "service1Title": "Transferências",
-        "service1Description": "Uma transferência bancária é um processo pelo qual o dinheiro é transferido de uma conta bancária para outra.",
+        "service1Description": "confiança, rapidez e segurança nos seus envios",
         "service2Title": "Cotações",
         "service2Description": "No contexto de uma casa de câmbio ou de uma entidade que trabalha com câmbio de moeda, uma cotação se refere ao valor ou taxa pela qual uma moeda pode ser trocada por outra em um determinado momento.",
         "service3Title": "Envios",
@@ -157,7 +157,7 @@
     "calculadora": {
         "EnviarP": "Enviar",
         "RecibirP": "Receber",
-        "Titulo": "Insira o valor a ser calculado",
+        "Titulo": "Insira o valor a ser enviado",
         "Total": "Total a Enviar",
         "Tipo": "Taxa de Câmbio",
         "Recibe": "Recebe",

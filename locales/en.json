@@ -14,17 +14,14 @@
         "hours": "We are open from 8:30 am to 14:00 pm",
         "login": "Login"
     },
-    "footer": {
-        "allRightsReserved": "All rights reserved."
-    },
     "homepage": {
         "welcome": "Welcome to our website!",
         "description": "We provide excellent services."
     },
     "heroSection": {
-        "title": "Brasper Transfers",
-        "description": "Send Soles, Dollars, and Reais to Brazil and Peru at the best exchange rate and with a premium fee for your transfers!",
-        "buttonText": "Invite here"
+        "title": "Your shipment arrives in Minutes and Directly to your Destination Account!",
+        "description": "confidence, speed and security in our shipments",
+        "buttonText": "INVITE HERE and EARN YOUR BRASPER BONUS"
     },
     "projectSection": {
         "title": "International Transfers",
@@ -160,7 +157,7 @@
     "calculadora": {
         "EnviarP": "Send",
         "RecibirP": "Receive",
-        "Titulo": "Enter the Amount to calculate",
+        "Titulo": "Enter the Amount to Send",
         "Total": "Total to Send",
         "Tipo": "Exchange Rate",
         "Recibe": "Receives",
