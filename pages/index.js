@@ -7,7 +7,8 @@ import Acerca from "@/pages/acerca";
 import TestimonialsSlider from "@/src/components/slider/TestimonialsSlider";
 import { useLocale } from "../context/LocaleContext";
 import { projectSliderActive } from "@/src/sliderProps";
-import Calculator from "@/src/components/calculator/Calculator";
+//import Calculator from "@/src/components/calculator/Calculator";
+import CalculatorContainer from "@/src/components/calculator/CalculatorContainer";
 
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
@@ -57,7 +58,8 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-4  align-middle ">
-              <Calculator />
+              {/* <Calculator /> */}
+              <CalculatorContainer />
             </div>
           </div>
         </div>
