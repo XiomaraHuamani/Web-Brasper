@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-// Eliminamos la importación de commissionRates
 import { useLocale } from "@/context/LocaleContext";
 import Image from "next/image";
 import Logo from '../../../public/assets/images/logos/logo_principal.png';
@@ -407,7 +406,6 @@ const Calculator = () => {
           }}
       /> */}
       <div className="currency-inputs r pb-4 pt-2">
-       
         <div className="currency-row pb-2">
           {/* Selector de moneda "Desde" */}
           <Select

@@ -1,44 +1,48 @@
+// components/calculator/CommissionDetails.jsx
+
 import React from "react";
 
-const Summary = ({
+const CommissionDetails = ({
+  commissionRateDisplay,
   commission,
-  commissionRate,
   tax,
-  total,
+  totalToSend,
   exchangeRate,
-  errorMessage,
-}) => (
-  <div>
-    {errorMessage && (
-      <div className="error-message text-danger">{errorMessage}</div>
-    )}
+  t,
+}) => {
+  return (
     <div className="row gy-4 mb-3 text-dark">
       <div className="col-6">
-        <strong>Comisión {commissionRate}:</strong>
+        <strong>
+          {t.calculadora.Comisión} {commissionRateDisplay}:
+        </strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>
         <strong>{commission}</strong>
       </div>
+
       <div className="col-6">
-        <strong>Impuestos:</strong>
+        <strong>{t.calculadora.Impuestos}:</strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>
         <strong>{tax}</strong>
       </div>
+
       <div className="col-6">
-        <strong>Total:</strong>
+        <strong>{t.calculadora.Total}:</strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>
-        <strong>{total}</strong>
+        <strong>{totalToSend}</strong>
       </div>
+
       <div className="col-6">
-        <strong>Tipo de Cambio:</strong>
+        <strong>{t.calculadora.Tipo}:</strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>
         <strong>{exchangeRate}</strong>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-export default Summary;
+export default CommissionDetails;
