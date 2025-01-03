@@ -47,7 +47,7 @@ const Footer = () => {
                 <Link legacyBehavior href="/index">
                   <a>
                     <img
-                      src="assets/images/logos/logo_blanco.png"
+                      src="assets/images/logos/LOGO_POSITIVO.png"
                       alt="Logo"
                     />
                   </a>

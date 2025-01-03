@@ -11,7 +11,7 @@ const Header1 = () => {
         <div className="container clearfix">
           <div className="header-inner rel d-flex align-items-center">
             <img
-              src="assets/images/logos/logo_blanco.png"
+              src="assets/images/logos/LOGO_POSITIVO.png"
               alt="Logo"
               title="Logo"
               className="logo"
