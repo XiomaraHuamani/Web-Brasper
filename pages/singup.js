@@ -13,6 +13,8 @@ const Signup = () => {
     password: "",
     password2: "",
   });
+  
+  const [isLoading, setIsLoading] = useState(false);  // Agregar este estado
 
   const [errors, setErrors] = useState({});
 
@@ -92,16 +94,39 @@ const Signup = () => {
 
   const handleGoogleResponse = async (response) => {
     try {
+      setIsLoading(true);
+      console.log("Google response:", response);
+
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}auth/google`,
-        { token: response.credential }
+        `${process.env.NEXT_PUBLIC_API_URL}api/v1/auth/google/`,
+        { credential: response.credential }
       );
+
       if (res.status === 200) {
-        sessionStorage.setItem("token", res.data.token);
-        router.push("/");
+        const { data } = res;
+        console.log("Server response:", data);
+
+        // Guardar los datos en localStorage
+        localStorage.setItem("token", data.key || data.token);
+        if (data.user) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+        }
+        if (data.role) {
+          localStorage.setItem("role", data.role);
+        }
+
+        toast.success("Registro exitoso");
+        router.push("/Dash");
       }
     } catch (error) {
-      console.error("Error al autenticar con Google:", error);
+      console.error("Error completo:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
+      toast.error("Error en el registro con Google");
+    } finally {
+      setIsLoading(false);
     }
   };
 

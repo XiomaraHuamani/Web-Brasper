@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from 'next/script';
 
 const JeenaHead = () => {
   const version = "1.0.1";
@@ -16,6 +17,11 @@ const JeenaHead = () => {
         name="keywords"
         content="Transferencias Brasper , Como trasferir , Dinero Brasileño , Soles Peruanos , Tranferias de paises"
       />
+
+      {/* Cross-Origin Headers */}
+      <meta httpEquiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups" />
+      <meta httpEquiv="Cross-Origin-Embedder-Policy" content="credentialless" />
+
       {/* Title */}
       <title>braspertransferencias</title>
       {/* Favicon Icon */}
@@ -73,12 +79,16 @@ const JeenaHead = () => {
         }}
       />
       {/* google utentificacion */}
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
       <script
+        src="https://accounts.google.com/gsi/client"
+        async
+        defer
+      />
+      {/* <script
         src="https://accounts.google.com/gsi/intermediate"
         async
         defer
-      ></script>
+      ></script> */}
     </Head>
   );
 };

@@ -9,9 +9,9 @@ const Dash = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
-    const role = JSON.parse(localStorage.getItem("role"));
+    const role = localStorage.getItem("role"); // Eliminado JSON.parse
 
-    if (!token || role !== "client") {
+    if (!token || role !== "Client") { // Notar la 'C' mayúscula
       router.push("/login");
     } else {
       setLoading(false); 
