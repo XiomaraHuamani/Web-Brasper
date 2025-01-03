@@ -75,7 +75,7 @@ const CurrencyRow = ({
             ...base,
             width: "50%",
             margin: "0 auto",
-            marginBottom: "0.5rem",
+            marginBottom: "-0.4rem",
           }),
           control: (base) => ({ ...base, minHeight: "45px" }),
           valueContainer: (base) => ({
