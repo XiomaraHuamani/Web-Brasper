@@ -93,7 +93,7 @@ const Index = () => {
               <div className="video">
                 <img src="assets/images/projects/img_video2.png" alt="Video" />
                 <a
-                  href="https://www.youtube.com/watch?v=DPR8pZN9OrM"
+                  href="https://www.youtube.com/watch?v=DDQb7731Fn0&t=2s"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                   target="_blank"
@@ -134,7 +134,7 @@ const Index = () => {
               <div className="video">
                 <img src="assets/images/projects/img-video1.png" alt="Video" />
                 <a
-                  href="https://youtube.com/shorts/arT3LE9GSvk?si=wyoG0vCLHUd4UDnV"
+                  href="https://www.youtube.com/watch?v=r3lA3P9evjk&t=18s"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                   target="_blank"

@@ -484,7 +484,7 @@ const Index3 = () => {
                   alt="Consultations"
                 />
                 <a
-                  href="https://youtu.be/DPR8pZN9OrM?si=0dtwxf1hMOUMCxqk"
+                  href="https://www.youtube.com/watch?v=r3lA3P9evjk&t=18s"
                   className="mfp-iframe video-play"
                 >
                   <i className="fas fa-play" />

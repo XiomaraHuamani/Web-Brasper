@@ -305,7 +305,7 @@ const Index2 = () => {
             <div className="col-lg-6">
               <div className="cs-image-part mb-30 wow fadeInRight delay-0-2s">
                 <a
-                  href="https://youtu.be/DPR8pZN9OrM?si=0dtwxf1hMOUMCxqk"
+                  href="https://www.youtube.com/watch?v=DDQb7731Fn0&t=2s"
                   className="mfp-iframe video-play style-two"
                   tabIndex={0}
                 >
