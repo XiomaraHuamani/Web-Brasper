@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image';
-import popup2 from "../../public/assets/images/popup/año_nuevo.jpeg";
+import popup from "../../public/assets/images/popup/pop.jpg";
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -12,7 +12,7 @@ const Popup = ({ isOpen, onClose }) => {
           &times;
         </button>
         <Image
-          src={popup2}
+          src={popup}
           alt="Popup"
           style={{ maxWidth: "70%", height: "auto" }}
         />

@@ -9,10 +9,10 @@ const Admin = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
-    const role = localStorage.getItem("role");
+    const role = JSON.parse(localStorage.getItem("role"));
     
 
-    if (!token || role !== "Staff") {
+    if (!token || role !== "staff") {
       router.push("/login");
     } else {
       setLoading(false);
