@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image';
-import popup from "../../public/assets/images/popup/pop.jpg";
+import popup from "../../public/assets/images/popup/pop.jpeg";
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -14,7 +14,7 @@ const Popup = ({ isOpen, onClose }) => {
         <Image
           src={popup}
           alt="Popup"
-          style={{ maxWidth: "70%", height: "auto" }}
+          style={{ maxWidth: "85%", height: "auto" }}
         />
       </div>
       <style jsx>{`
@@ -32,11 +32,11 @@ const Popup = ({ isOpen, onClose }) => {
         }
         .popup-content {
           background: #fff;
-          padding: 20px;
+          padding: 0px;
           border-radius: 8px;
           text-align: center;
-          max-width: 90%;
-          width: 500px;
+          max-width: 100%;
+          width: 450px;
           position: relative;
         }
         .close-btn {
