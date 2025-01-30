@@ -4,11 +4,11 @@ const databancos = [
     img1: "assets/images/brasper/bcp.jpeg",
     enlace: "https://www.viabcp.com/",
   },
-  {
-    id: "2",
-    img1: "/assets/images/brasper/interbank.jpeg",
-    enlace: "https://interbank.pe/",
-  },
+  // {
+  //   id: "2",
+  //   img1: "/assets/images/brasper/interbank.jpeg",
+  //   enlace: "https://interbank.pe/",
+  // },
   {
     id: "3",
     img1: "/assets/images/brasper/bdb.png",

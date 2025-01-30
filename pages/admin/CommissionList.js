@@ -1,4 +1,4 @@
-// components/CommissionList.js
+// CommissionList.jsx
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -11,10 +11,11 @@ const CommissionList = ({
   targetCurrencyId,
   reloadData,
 }) => {
-  const [loadingId, setLoadingId] = useState(null); 
+  const [loadingId, setLoadingId] = useState(null);
 
   // Manejar cambios en los inputs
   const handleInputChange = (id, field, newValue) => {
+    // Elimina comas (si las hubiera) para asegurar que solo queden dígitos/decimales
     const sanitizedValue = newValue.replace(/,/g, '');
     setItems((prevItems) =>
       prevItems.map((item) =>
@@ -25,7 +26,7 @@ const CommissionList = ({
 
   // Guardar comisión y recargar datos
   const handleSaveCommission = async (item) => {
-    setLoadingId(item.id || `new-${item.range}`); // Identifica el ítem que está siendo guardado
+    setLoadingId(item.id || `new-${item.range}`);
     try {
       const commissionData = {
         base_currency: baseCurrencyId,
@@ -64,11 +65,11 @@ const CommissionList = ({
       }
 
       console.log('Comisión guardada correctamente.');
-      await reloadData(); 
+      await reloadData();
     } catch (error) {
       console.error('Error al guardar la comisión:', error.response?.data || error.message);
     } finally {
-      setLoadingId(null); 
+      setLoadingId(null);
     }
   };
 
@@ -90,24 +91,24 @@ const CommissionList = ({
   };
 
   return (
-    <div className="container">
-      <div>
-        <h3>Comisiones</h3>
-      </div>
+    <div className="container mx-auto p-4">
+      <h3 className="text-2xl font-bold mb-6">Comisiones</h3>
+      
       {items
         .sort((a, b) => a.range - b.range)
         .map((item, index) => (
           <div
-            className="row mt-3 d-flex justify-content-center align-items-center"
             key={item.id || `range-${item.range}-${index}`}
+            className="flex flex-col md:flex-row items-center justify-center my-3 space-y-3 md:space-y-0 md:space-x-3"
           >
-            <div className="col-md-2">
+            {/* Min Amount */}
+            <div className="w-full md:w-1/5">
               <input
                 type="number"
-                className="form-control"
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-400"
                 value={item.min_amount}
                 onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, ''); // Remover todo excepto dígitos
+                  const value = e.target.value.replace(/\D/g, '');
                   handleInputChange(item.id, 'min_amount', value);
                 }}
                 placeholder="Min Amount"
@@ -116,10 +117,11 @@ const CommissionList = ({
               />
             </div>
 
-            <div className="col-md-2">
+            {/* Max Amount */}
+            <div className="w-full md:w-1/5">
               <input
                 type="number"
-                className="form-control"
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-400"
                 value={item.max_amount}
                 onChange={(e) => {
                   const value = e.target.value.replace(/\D/g, '');
@@ -131,10 +133,11 @@ const CommissionList = ({
               />
             </div>
 
-            <div className="col-md-2">
+            {/* Comisión (%) */}
+            <div className="w-full md:w-1/5">
               <input
                 type="number"
-                className="form-control"
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-400"
                 value={item.commission_percentage}
                 onChange={(e) =>
                   handleInputChange(item.id, 'commission_percentage', e.target.value)
@@ -147,10 +150,11 @@ const CommissionList = ({
               />
             </div>
 
-            <div className="col-md-2">
+            {/* Comisión inversa */}
+            <div className="w-full md:w-1/5">
               <input
                 type="number"
-                className="form-control"
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-400"
                 value={item.reverse_commission}
                 onChange={(e) =>
                   handleInputChange(item.id, 'reverse_commission', e.target.value)
@@ -163,9 +167,10 @@ const CommissionList = ({
               />
             </div>
 
-            <div className="col-md-2">
+            {/* Botón Guardar */}
+            <div className="w-full md:w-1/5 flex justify-center">
               <button
-                className="btn btn-success"
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded focus:outline-none disabled:opacity-50"
                 onClick={() => handleSaveCommission(item)}
                 disabled={loadingId === (item.id || `new-${item.range}`)}
               >
@@ -173,9 +178,14 @@ const CommissionList = ({
               </button>
             </div>
           </div>
-        ))}
-      <div className="text-center mt-4">
-        <button className="btn btn-primary" onClick={handleAddRange}>
+        ))
+      }
+
+      <div className="text-center mt-6">
+        <button
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none"
+          onClick={handleAddRange}
+        >
           Agregar nuevo rango
         </button>
       </div>
