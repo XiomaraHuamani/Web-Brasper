@@ -14,7 +14,7 @@ const Popup = ({ isOpen, onClose }) => {
         <Image
           src={popup}
           alt="Popup"
-          style={{ maxWidth: "85%", height: "auto" }}
+          style={{ maxWidth: "100%", height: "auto" }}
         />
       </div>
       <style jsx>{`
@@ -32,11 +32,11 @@ const Popup = ({ isOpen, onClose }) => {
         }
         .popup-content {
           background: #fff;
-          padding: 0px;
+          padding: 22px;
           border-radius: 8px;
           text-align: center;
           max-width: 100%;
-          width: 450px;
+          width: 490px;
           position: relative;
         }
         .close-btn {
