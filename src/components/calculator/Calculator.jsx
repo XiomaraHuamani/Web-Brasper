@@ -224,13 +224,13 @@ const Calculator = () => {
       const commissionAndTaxRate = commissionRate * (1 + taxRate);
       amountSendCalc = parsedAmount / (rate * (1 - commissionAndTaxRate));
 
-      if (amountSendCalc < 20) {
+      if (amountSendCalc < 100) {
         setCommission(0);
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
         setExchangeRate(rate.toFixed(2));
-        setErrorMessage("El monto mínimo es 20");
+        setErrorMessage("El monto mínimo es 100");
         return;
       } else {
         setErrorMessage("");
@@ -250,13 +250,13 @@ const Calculator = () => {
       setAmountSend(amountSendCalc.toFixed(2));
     } else {
       // Cálculo basado en Monto a Enviar
-      if (parsedAmount < 20) {
+      if (parsedAmount < 100) {
         setCommission(0);
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
         setExchangeRate(rate.toFixed(2));
-        setErrorMessage("El monto mínimo es 20");
+        setErrorMessage("El monto mínimo es 100");
         return;
       } else {
         setErrorMessage("");
