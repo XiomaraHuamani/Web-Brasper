@@ -46,7 +46,7 @@ const SendButton = ({
       (currency) => currency.code === toCurrency
     ).name;
 
-    const message = `${t.calculadora["Excelente, su cotización Brasper para su envío de hoy es la siguiente:"]}\n *${t.calculadora["Monto a Enviar"]}: ${amountSend} ${fromCurrency}*\n ${t.calculadora["Tipo de Cambio"]}: ${exchangeRate}\n ${t.calculadora["Comisión"]}: ${commission} ${fromCurrency}\n ${t.calculadora["Impuestos"]}: ${tax} ${fromCurrency}\n ${t.calculadora["Neto a convertir"]}: ${totalToSend} ${fromCurrency}\n *${t.calculadora["Total a Recibir"]}: ${amountReceive} ${toCurrency}*\n\n *${t.calculadora["Resumen:"]}* ${t.calculadora["Para su envío de"]} *${amountSend} ${fromCurrency}* ${t.calculadora[", recibirá directo en su cuenta de destino"]} *${amountReceive} ${toCurrency}*`;
+    const message = `${t.calculadora["Excelente, su cotización Brasper para su envío de hoy es la siguiente:"]}\n *${t.calculadora["Monto a Enviar"]}: ${amountSend} ${fromCurrency}*\n ${t.calculadora["Tipo de Cambio"]}: ${exchangeRate}\n ${t.calculadora["Comisión"]} ${t.calculadora["Descuento"]}: ${commission} ${fromCurrency}\n ${t.calculadora["Impuestos"]}: ${tax} ${fromCurrency}\n ${t.calculadora["Neto a convertir"]}: ${totalToSend} ${fromCurrency}\n *${t.calculadora["Total a Recibir"]}: ${amountReceive} ${toCurrency}*\n\n *${t.calculadora["Resumen:"]}* ${t.calculadora["Para su envío de"]} *${amountSend} ${fromCurrency}* ${t.calculadora[", recibirá directo en su cuenta de destino"]} *${amountReceive} ${toCurrency}*`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

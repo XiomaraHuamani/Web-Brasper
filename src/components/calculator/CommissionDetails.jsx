@@ -1,5 +1,6 @@
 // components/calculator/CommissionDetails.jsx
 
+import { color } from "framer-motion";
 import React from "react";
 
 const CommissionDetails = ({
@@ -17,7 +18,7 @@ const CommissionDetails = ({
           {t.calculadora.Comisión} {commissionRateDisplay}:
         </strong> */}
         <strong>
-          {t.calculadora.Comisión}:
+          {t.calculadora.Comisión} <span style={{color: "#c91c10"}}>{t.calculadora.Descuento}</span>:
         </strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>
