@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState, Fragment } from "react";
 import { Accordion } from "react-bootstrap";
 import { useLocale } from "../../../context/LocaleContext"; // Asegúrate de importar el contexto de idioma
+import Select from "react-select";
 
 const Menu = () => {
   return (
@@ -12,6 +13,30 @@ const Menu = () => {
   );
 };
 
+const languageOptions = [
+  { value: "es", label: "Español", flag: "/assets/images/flags/pe.png" },
+  { value: "en", label: "English", flag: "/assets/images/flags/usa.png" },
+  { value: "pt", label: "Português", flag: "/assets/images/flags/bra.png" },
+];
+const customSingleValue = ({ data }) => (
+  <div className="flex items-center">
+    <img src={data.flag} alt={data.label} className="w-2 m-3 h-2 mr-2" />
+    {data.label}
+  </div>
+);
+const customOption = (props) => {
+  const { data, innerRef, innerProps } = props;
+  return (
+    <div
+      ref={innerRef}
+      {...innerProps}
+      className="flex items-center p- hover:bg-gray-700 cursor-pointer"
+    >
+      <img src={data.flag} alt={data.label} className="w-2 h-2 mr-2" />
+      {data.label}
+    </div>
+  );
+};
 const MobileMenu = () => {
   const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
   const [activeMenu, setActiveMenu] = useState(null);
@@ -34,7 +59,7 @@ const MobileMenu = () => {
             </Link> */}
           </div>
           <div className="pl-4">
-          {/* <li className="dropdown">
+            {/* <li className="dropdown">
               <select
                 value={locale}
                 onChange={(e) => changeLocale(e.target.value)}
@@ -112,7 +137,7 @@ const MobileMenu = () => {
             </li>
             <li className="dropdown">
               <Link href="/singup" onClick={() => active("singup")}>
-              Registrate <i className="fas fa-long-arrow-right" />
+                Registrate <i className="fas fa-long-arrow-right" />
               </Link>
             </li>
           </ul>
@@ -168,22 +193,39 @@ const DeskTopMenu = () => {
             {/* Traducción de "Servicios" */}
           </li>
           {/* Selector de idioma */}
-          <li className="dropdown" style={{ color: "#fff" }}>
-            <select
-              value={locale}
-              onChange={(e) => changeLocale(e.target.value)}
-              style={{
-                background: "#0f1425",
-                border: "none",
-                color: "#fff",
-                padding: "5px",
-                borderRadius: "4px",
+          <li className="dropdown p-2">
+            <Select
+              options={languageOptions}
+              value={languageOptions.find((option) => option.value === locale)}
+              onChange={(selectedOption) => changeLocale(selectedOption.value)}
+              components={{
+                SingleValue: customSingleValue,
+                Option: customOption,
               }}
-            >
-              <option value="es">Español</option>
-              <option value="en">English</option>
-              <option value="pt">Português</option>
-            </select>
+              styles={{
+                control: (base) => ({
+                  ...base,
+                  background: "transparent",
+                  border: "none",
+                  color: "#fff",
+                  padding: "1px",
+                  borderRadius: "1px",
+                }),
+                singleValue: (base) => ({
+                  ...base,
+                  color: "#fff",
+                }),
+                menu: (base) => ({
+                  ...base,
+                  background: "#0f1425",
+                }),
+                option: (base, state) => ({
+                  ...base,
+                  background: state.isFocused ? "#1f263b" : "#0f1425",
+                  color: "#fff",
+                }),
+              }}
+            />
           </li>
         </ul>
       </div>

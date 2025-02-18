@@ -183,7 +183,7 @@ const Calculator = () => {
   const calculateCommissionRate = (amount, currencyPair) => {
     const rates = commissionRates[currencyPair];
     if (!rates) {
-      return 0.03; // Por defecto, 3% si no hay nada definido
+      return 0.03; 
     }
     for (let i = 0; i < rates.length; i++) {
       const { min, max, rate } = rates[i];
