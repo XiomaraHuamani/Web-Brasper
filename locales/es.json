@@ -172,13 +172,13 @@
         "Excelente, su cotización Brasper para su envío de hoy es la siguiente:": "Perfecto, los detalles de tu envío de Brasper hoy son los siguientes:",
         "Monto a Enviar": "Monto a Enviar",
         "Tipo de Cambio": "Tipo de Cambio",
-        "Comisión": "Comisión",
+        "Comisión": "Comisión de envío",
         "Impuestos": "Impuestos",
         "Neto a convertir": "Neto a convertir",
         "Total a Recibir": "Total a Recibir",
         "Resumen:":"Resumen:",
         "Para su envío de":"Para su envío de",
-        ", recibirá directo en su cuenta de destino":", recibirá directo en su cuenta de destino",
+        ", recibirá directo en su cuenta de destino":", con el Descuento Brasper recibirá directo en su cuenta de destino",
         "Descuento":"(con descuento)"
     },
     "Bancos": {
