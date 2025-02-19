@@ -1,6 +1,48 @@
 .main-menu li.dropdown:hover > ul {
   display: block;
 }
+/* Contenedor de las banderas */
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre banderas */
+}
+
+/* Estilos para cada bandera */
+.language-selector button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Tamaño de las banderas */
+.language-selector img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.language-selector button:hover img {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Resaltar la bandera del idioma activo */
+.language-selector button.active img {
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+  transform: scale(1.1);
+}
+
+/* Reducir opacidad de las banderas no seleccionadas */
+.language-selector button:not(.active) img {
+  opacity: 0.5;
+}
+
 
 /* Slick slider */
 .slick-dots {

@@ -13,30 +13,30 @@ const Menu = () => {
   );
 };
 
-const languageOptions = [
-  { value: "es", label: "Español", flag: "/assets/images/flags/pe.png" },
-  { value: "en", label: "English", flag: "/assets/images/flags/usa.png" },
-  { value: "pt", label: "Português", flag: "/assets/images/flags/bra.png" },
-];
-const customSingleValue = ({ data }) => (
-  <div className="flex items-center">
-    <img src={data.flag} alt={data.label} className="w-2 m-3 h-2 mr-2" />
-    {data.label}
-  </div>
-);
-const customOption = (props) => {
-  const { data, innerRef, innerProps } = props;
-  return (
-    <div
-      ref={innerRef}
-      {...innerProps}
-      className="flex items-center p- hover:bg-gray-700 cursor-pointer"
-    >
-      <img src={data.flag} alt={data.label} className="w-2 h-2 mr-2" />
-      {data.label}
-    </div>
-  );
+const scrollToBancos = () => {
+  const bancosSection = document.getElementById("bancos-section");
+  if (bancosSection) {
+    bancosSection.scrollIntoView({ behavior: "smooth" });
+  }
 };
+const languageOptions = [
+  {
+    value: "es",
+    label: "Español",
+    flag: "/assets/images/flags/banderaespaña.png",
+  },
+  {
+    value: "en",
+    label: "English",
+    flag: "/assets/images/flags/estados-unidos.png",
+  },
+  {
+    value: "pt",
+    label: "Português",
+    flag: "/assets/images/flags/banderabrasil.png",
+  },
+];
+
 const MobileMenu = () => {
   const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
   const [activeMenu, setActiveMenu] = useState(null);
@@ -99,11 +99,9 @@ const MobileMenu = () => {
                 {t.navbar.home} {/* Traducción de "Inicio" */}
               </Link>
             </li>
-
             <li className="dropdown">
               <Link href="/about">{t.navbar.about}</Link>
             </li>
-
             <li className="dropdown">
               <Link href="#">{t.navbar.howItWorks}</Link>
             </li>
@@ -111,24 +109,28 @@ const MobileMenu = () => {
               <Link href="" onClick={() => active("services")}>
                 {t.navbar.services} {/* Traducción de "Servicios" */}
               </Link>
+            </li>{" "}
+            <li className="dropdown">
+              <button
+                onClick={scrollToBancos}
+                className="bg-transparent border-none text-white cursor-pointer"
+              >
+                {t.navbar.banks}
+              </button>
             </li>
             {/* Selector de idioma */}
-            <li className="dropdown">
-              <select
-                value={locale}
-                onChange={(e) => changeLocale(e.target.value)}
-                style={{
-                  background: "#000000",
-                  border: "none",
-                  color: "#fff",
-                  padding: "5px",
-                  borderRadius: "4px",
-                }}
-              >
-                <option value="es">Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
-              </select>
+            <li className="dropdown language-selector">
+              Idomas:
+              {languageOptions.map((lang) => (
+                <button
+                  key={lang.value}
+                  onClick={() => changeLocale(lang.value)}
+                  className={locale === lang.value ? "active" : ""}
+                  title={lang.label}
+                >
+                  <img src={lang.flag} alt={lang.label} />
+                </button>
+              ))}
             </li>
             <li className="dropdown">
               <Link href="/login" onClick={() => active("login")}>
@@ -189,43 +191,28 @@ const DeskTopMenu = () => {
             <Link href="#">{t.navbar.services}</Link>{" "}
           </li>{" "} */}
           <li className="dropdown">
-            <Link href="blog">{t.navbar.blog}</Link>{" "}
-            {/* Traducción de "Servicios" */}
+            <Link href="blog">{t.navbar.blog}</Link>
+          </li>{" "}
+          <li className="dropdown">
+            <button
+              onClick={scrollToBancos}
+              className="bg-transparent border-none text-white cursor-pointer"
+            >
+              {t.navbar.banks}
+            </button>
           </li>
           {/* Selector de idioma */}
-          <li className="dropdown p-2">
-            <Select
-              options={languageOptions}
-              value={languageOptions.find((option) => option.value === locale)}
-              onChange={(selectedOption) => changeLocale(selectedOption.value)}
-              components={{
-                SingleValue: customSingleValue,
-                Option: customOption,
-              }}
-              styles={{
-                control: (base) => ({
-                  ...base,
-                  background: "transparent",
-                  border: "none",
-                  color: "#fff",
-                  padding: "1px",
-                  borderRadius: "1px",
-                }),
-                singleValue: (base) => ({
-                  ...base,
-                  color: "#fff",
-                }),
-                menu: (base) => ({
-                  ...base,
-                  background: "#0f1425",
-                }),
-                option: (base, state) => ({
-                  ...base,
-                  background: state.isFocused ? "#1f263b" : "#0f1425",
-                  color: "#fff",
-                }),
-              }}
-            />
+          <li className="dropdown language-selector">
+            {languageOptions.map((lang) => (
+              <button
+                key={lang.value}
+                onClick={() => changeLocale(lang.value)}
+                className={locale === lang.value ? "active" : ""}
+                title={lang.label}
+              >
+                <img src={lang.flag} alt={lang.label} />
+              </button>
+            ))}
           </li>
         </ul>
       </div>

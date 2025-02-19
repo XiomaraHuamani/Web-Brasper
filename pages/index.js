@@ -26,16 +26,23 @@ const Index = () => {
               <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
                 <h1>
                   {t.heroSection.title1}{" "}
-                  <span className="hero-content-dos">{t.heroSection.title2}</span>{" "}
+                  <span className="hero-content-dos">
+                    {t.heroSection.title2}
+                  </span>{" "}
                   {t.heroSection.title3}
                 </h1>
                 {/* <h1>{t.heroSection.title2}</h1>
                 <h1>{t.heroSection.title3}</h1> */}
-                <h5 style={{color:'white'}}>
-                  {t.heroSection.description}
-                </h5>
-                <Link legacyBehavior href="https://wa.me/?text=Hola,%20estas%20a%20un%20paso%20de%20comenzar%20una%20nueva%20experiencia%20con%20tus%20env%C3%ADos%20online%20a%20Per%C3%BA%20PE%20y%20Brasil%20BR%20.%20Ven%20con%20nosotros%20y%20se%20parte%20de%20la%20comunidad%20de%20Brasper%20Transferencias%20!%20%F0%9F%98%8E%20.%20Confianza%20,%20seguridad%20y%20rapidez%20en%20sus%20env%C3%ADo%20%E2%9D%A4%EF%B8%8F%20%F0%9F%92%9A%20%F0%9F%8E%89%20%F0%9F%91%87%20%F0%9F%92%9A%20.%20Haga%20click%20en%20el%20siguiente%20enlace%20%F0%9F%98%8A%20https://rb.gy/vjpce3%20">
-                  <a className="theme-btn mt-20 wow fadeInUp delay-0-6s" target="_blank" rel="noopener noreferrer">
+                <h5 style={{ color: "white" }}>{t.heroSection.description}</h5>
+                <Link
+                  legacyBehavior
+                  href="https://wa.me/?text=Hola,%20estas%20a%20un%20paso%20de%20comenzar%20una%20nueva%20experiencia%20con%20tus%20env%C3%ADos%20online%20a%20Per%C3%BA%20PE%20y%20Brasil%20BR%20.%20Ven%20con%20nosotros%20y%20se%20parte%20de%20la%20comunidad%20de%20Brasper%20Transferencias%20!%20%F0%9F%98%8E%20.%20Confianza%20,%20seguridad%20y%20rapidez%20en%20sus%20env%C3%ADo%20%E2%9D%A4%EF%B8%8F%20%F0%9F%92%9A%20%F0%9F%8E%89%20%F0%9F%91%87%20%F0%9F%92%9A%20.%20Haga%20click%20en%20el%20siguiente%20enlace%20%F0%9F%98%8A%20https://rb.gy/vjpce3%20"
+                >
+                  <a
+                    className="theme-btn mt-20 wow fadeInUp delay-0-6s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {t.heroSection.buttonText}{" "}
                     <i className="fas fa-long-arrow-right" />
                   </a>
@@ -167,8 +174,7 @@ const Index = () => {
           <div className="row medium-gap">
             <div className="col-xl-4 col-md-6">
               <div className="section-title mb-60 wow fadeInUp delay-0-2s">
-                <span className="sub-title mb-15">
-                </span>
+                <span className="sub-title mb-15"></span>
                 <h2>{t.servicesSection.subtitle}</h2>
               </div>
             </div>
@@ -323,7 +329,6 @@ const Index = () => {
           <TestimonialsSlider />
         </div>
       </section>
-
     </Layout>
   );
 };

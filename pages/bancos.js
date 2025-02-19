@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import { useLocale } from "@/context/LocaleContext";
 
 const swiperOptions = {
-
   modules: [Autoplay, Pagination, Navigation],
   slidesPerView: 5,
   spaceBetween: 0,
@@ -46,10 +45,13 @@ const swiperOptions = {
 };
 
 const Bancos = () => {
-  const { t } = useLocale(); 
-  
+  const { t } = useLocale();
+
   return (
-    <section className="partners-area mt-60 pt-50 pb-30 rmt-30 rpb-70 rel z-1">
+    <section
+      id="bancos-section"
+      className="partners-area mt-60 pt-50 pb-30 rmt-30 rpb-70 rel z-1"
+    >
       <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
         <div className="container-fluid">
           <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
