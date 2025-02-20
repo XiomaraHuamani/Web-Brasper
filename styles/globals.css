@@ -125,3 +125,27 @@ img.mfp-img {
 .active-scroll-top {
   display: inline-block;
 }
+.hero-area {
+  padding-left: 170px;
+  padding-right: 190px; 
+}
+
+@media (max-width: 768px) {
+  .hero-area {
+    padding: 60px 3%; /* Reduce padding en móviles */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    display: none !important; /* Asegura que no haya reglas que sobrescriban esto */
+  }
+}
+
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

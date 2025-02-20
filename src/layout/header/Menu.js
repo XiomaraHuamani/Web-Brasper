@@ -96,8 +96,11 @@ const MobileMenu = () => {
           <ul className="navigation clearfix">
             <li className="dropdown">
               <Link href="/" onClick={() => active("home")}>
-                {t.navbar.home} {/* Traducción de "Inicio" */}
+                {t.navbar.home}
               </Link>
+            </li>
+            <li className="dropdown">
+              <Link href="/about">{t.navbar.banks}</Link>
             </li>
             <li className="dropdown">
               <Link href="/about">{t.navbar.about}</Link>
@@ -107,7 +110,7 @@ const MobileMenu = () => {
             </li>
             <li className="dropdown">
               <Link href="" onClick={() => active("services")}>
-                {t.navbar.services} {/* Traducción de "Servicios" */}
+                {t.navbar.services}
               </Link>
             </li>{" "}
             <li className="dropdown">
@@ -182,8 +185,8 @@ const DeskTopMenu = () => {
           </li>
           <li className="dropdown">
             <Link href="/about">{t.navbar.about}</Link>{" "}
-            {/* Traducción de "¿Quiénes somos?" */}
           </li>
+
           {/* <li className="dropdown">
             <Link href="#">{t.navbar.howItWorks}</Link>{" "}
           </li>
@@ -192,16 +195,15 @@ const DeskTopMenu = () => {
           </li>{" "} */}
           <li className="dropdown">
             <Link href="blog">{t.navbar.blog}</Link>
-          </li>{" "}
-          <li className="dropdown">
-            <button
-              onClick={scrollToBancos}
-              className="bg-transparent border-none text-white cursor-pointer"
-            >
-              {t.navbar.banks}
-            </button>
           </li>
-          {/* Selector de idioma */}
+          <li className="dropdown">
+            <a href="#" onClick={(e) => {
+              e.preventDefault();
+              scrollToBancos();
+            }}>
+              {t.navbar.banks}
+            </a>
+          </li>
           <li className="dropdown language-selector">
             {languageOptions.map((lang) => (
               <button
