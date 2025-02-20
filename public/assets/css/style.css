@@ -1224,7 +1224,7 @@ h6,
 h1,
 .h1 {
   line-height: 1.1;
-  font-size: 85px;
+  font-size: 50px;
 }
 
 h2,
@@ -4840,18 +4840,18 @@ h6,
 
 .hero-content-dos {
   color: #F3B508;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .hero-content h1 {
-  color: white;
-  font-size: 50px;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
 }
 
 
 @media only screen and (max-width: 1199px) {
   .hero-content h1 {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -4990,7 +4990,7 @@ h6,
 }
 
 .hero-content-two h1 {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 @media only screen and (max-width: 1399px) {
   .hero-content-two h1 {
