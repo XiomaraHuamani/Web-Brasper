@@ -10,7 +10,7 @@ import { projectSliderActive } from "@/src/sliderProps";
 import Calculator from "@/src/components/calculator/Calculator.jsx";
 import Image from "next/image";
 //import CalculatorContainer from "@/src/components/calculator/CalculatorContainer";
-import img from "../public/assets/images/img_personas.png";
+import img from "../public/assets/images/imggg.png";
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
