@@ -18,7 +18,8 @@ const CommissionDetails = ({
           {t.calculadora.Comisión} {commissionRateDisplay}:
         </strong> */}
         <strong>
-          {t.calculadora.Comisión} <span style={{color: "#c91c10", fontSize: "15px"}}>{t.calculadora.Descuento}</span>
+          {t.calculadora.Comisión}: 
+          {/* <span style={{color: "#c91c10", fontSize: "15px"}}>{t.calculadora.Descuento}</span> */}
         </strong>
       </div>
       <div className="col-6" style={{ color: "#c91c10" }}>

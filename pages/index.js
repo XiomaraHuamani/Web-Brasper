@@ -10,7 +10,7 @@ import { projectSliderActive } from "@/src/sliderProps";
 import Calculator from "@/src/components/calculator/Calculator.jsx";
 import Image from "next/image";
 //import CalculatorContainer from "@/src/components/calculator/CalculatorContainer";
-import img from "../public/assets/images/img_personas.png";
+import img from "../public/assets/images/imgg.png";
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
@@ -20,17 +20,19 @@ const Index = () => {
 
   return (
     <Layout header={1}>
-      <section className="hero-area bgc-gray rel z-1">
+      <section className="hero-area  bgc-gray rel z-1">
         <div className="row align-items-center">
           {/* Columna 1: Texto */}
-          <div className="col-lg-3">
-            <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
+          <div className=" col-lg-3 ">
+            <div className="hero-content pt-0 pb-0 rpb-0 wow fadeInUp delay-0-4s ">
               <h1>
                 {t.heroSection.title1}{" "}
-                {/* <span className="hero-content-dos">{t.heroSection.title2}</span>{" "}
-                {t.heroSection.title3} */}
+                <span className="hero-content-dos">{t.heroSection.title2}</span>{" "}
+                {t.heroSection.title3}{" "}
+                <span className="hero-content-dos">{t.heroSection.title4}</span>{" "}
+                {t.heroSection.title5}
               </h1>
-              <h5 style={{ color: "white"  }}>{t.heroSection.description}</h5>
+              <h5 style={{ color: "white" }}>{t.heroSection.description}</h5>
               <Link
                 legacyBehavior
                 href="https://wa.me/?text=Hola,%20estas%20a%20un%20paso..."
@@ -57,15 +59,14 @@ const Index = () => {
           </div>
 
           {/* Columna 3: Calculadora */}
-          <div className="col-lg-4" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
-  <div className="calculator-wrapper">
-    <Calculator />
-  </div>
-</div>
-
-
-
-
+          <div
+            className="col-lg-4"
+            style={{ paddingLeft: "0px", paddingRight: "0px" }}
+          >
+            <div className="calculator-wrapper">
+              <Calculator />
+            </div>
+          </div>
         </div>
 
         {/* Shapes decorativos */}

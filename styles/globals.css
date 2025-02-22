@@ -126,13 +126,14 @@ img.mfp-img {
   display: inline-block;
 }
 .hero-area {
-  padding-left: 150px;
-  padding-right: 150px; 
+  padding-left: 100px;
+  padding-right: 140px; 
 }
 
 @media (max-width: 768px) {
   .hero-area {
-    padding: 60px 3%; /* Reduce padding en móviles */
+    padding: 30px 3%; 
+    padding-top: 0px !important;/* Reduce padding en móviles */
   }
 }
 
@@ -151,6 +152,7 @@ img.mfp-img {
 
 .calculator-wrapper {
   width: 100%;
-  padding-left: 20%;
+  padding-left: 5%;
+  padding-top: 0px;
 }
 

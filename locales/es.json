@@ -20,9 +20,11 @@
         "description": "Ofrecemos servicios excelentes."
     },
     "heroSection": {
-        "title1": "¡Envía Soles, Dólares y Reales a Brasil y Perú con el mejor tipo de cambio!",
-        "title2": "Minutos",
-        "title3": "y Directo a tu Cuenta de Destino!",
+        "title1": "¡Envía Soles, Dólares y Reales a",
+        "title2": "Brasil",
+        "title3": "y",
+        "title4": "Perú",
+        "title5": "con el mejor tipo de cambio!",
         "description": "Tu envío llega en Minutos y Directo a tu Cuenta de Destino",
         "buttonText": "INVITA AQUÍ y GANA TU BONUS BRASPER"
     },
