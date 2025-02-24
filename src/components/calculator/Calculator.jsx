@@ -41,6 +41,20 @@ const currencyOptions = {
   BRL: ["PEN", "USD"],
 };
 
+const getMaxAmount = (from, to) => {
+  if (from === "BRL" && to === "PEN") return 5000;
+  if (from === "PEN" && to === "BRL") return 20000;
+  if (from === "BRL" && to === "USD") return 6000;
+  if (from === "USD" && to === "BRL") return 10000;
+  //return 10000;
+};
+
+const getMinAmount = (from, to) => {
+  if (from === "USD" && to === "BRL") return 20;   
+  return 100;  
+};
+
+
 const Calculator = () => {
   const { t } = useLocale();
 
@@ -62,6 +76,8 @@ const Calculator = () => {
   const [exchangeRates, setExchangeRates] = useState({});
   const [cachedRates, setCachedRates] = useState({});
   const [commissionRates, setCommissionRates] = useState({});
+
+
 
   // ---------------------------------------------------------------------------
   //  FUNCIONES PARA OBTENER DATOS DE LA API
@@ -206,15 +222,40 @@ const Calculator = () => {
       setTotalToSend(0);
       setExchangeRate("N/A");
       setErrorMessage("Tipo de cambio no disponible");
+      resetCalculations();
       return;
     }
 
     const parsedAmount = parseFloat(amount);
     if (isNaN(parsedAmount)) return;
 
+    const maxAmount = getMaxAmount(fromCurrency, toCurrency);
+    const minAmount = getMinAmount(fromCurrency, toCurrency);
+
+    if (parsedAmount <= minAmount) {
+      setErrorMessage(`El monto mínimo permitido es ${minAmount}`);
+      setCommission(0);
+      setCommissionRateDisplay(0);
+      setTax(0);
+      setTotalToSend(0);
+      setExchangeRate(0);
+      return;
+    }
+
+    if (parsedAmount >= maxAmount) {
+      setErrorMessage(`El monto máximo permitido es ${maxAmount}`);
+      setCommission(0);
+      setCommissionRateDisplay(0);
+      setTax(0);
+      setTotalToSend(0);
+      setExchangeRate(0);
+      return;
+    }
+  setErrorMessage("");
+
     const taxRate = 0.18;
     let commissionRate;
-    let amountSendCalc;
+    let amountSendCalc, amountReceiveCalc;
 
     if (isReceiveAmount) {
       // Cálculo basado en Monto a Recibir
@@ -231,6 +272,7 @@ const Calculator = () => {
         setTotalToSend(0);
         setExchangeRate(rate.toFixed(2));
         setErrorMessage("El monto mínimo es 100");
+        resetCalculations();
         return;
       } else {
         setErrorMessage("");
@@ -257,6 +299,7 @@ const Calculator = () => {
         setTotalToSend(0);
         setExchangeRate(rate.toFixed(2));
         setErrorMessage("El monto mínimo es 100");
+        resetCalculations();
         return;
       } else {
         setErrorMessage("");
@@ -268,13 +311,21 @@ const Calculator = () => {
       const commissionAmount = parsedAmount * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const total = parsedAmount - commissionAmount - taxAmount;
-      const received = total * rate;
+      //const received = total * rate;
+      amountReceiveCalc = total * rate;
+
+      if (amountReceiveCalc >= getMaxAmount(toCurrency, fromCurrency)) {
+        setErrorMessage(`El monto máximo permitido es ${getMaxAmount(toCurrency, fromCurrency)}`);
+        resetCalculations();
+        return;
+      }
 
       setCommission(commissionAmount.toFixed(2));
       setTax(taxAmount.toFixed(2));
       setTotalToSend(total.toFixed(2));
       setExchangeRate(rate.toFixed(3));
-      setAmountReceive(received.toFixed(2));
+      //setAmountReceive(received.toFixed(2));
+      setAmountReceive(amountReceiveCalc.toFixed(2));
     }
   };
 
@@ -374,7 +425,7 @@ const Calculator = () => {
       />
 
       {errorMessage && (
-        <div className="error-message text-danger">{errorMessage}</div>
+        <div className="error-message text-danger" style={{paddingBottom: "15px"}}>{errorMessage}</div>
       )}
 
       {/* Detalle de comisiones, impuestos, total, tipo de cambio */}
@@ -388,7 +439,7 @@ const Calculator = () => {
       />
 
       {/* Selección y monto - RECIBE */}
-      <div style={{ color: "#066ac9", fontSize: "20px", paddingBottom: "10px" }}>
+      <div style={{ color: "#066ac9", fontSize: "20px", paddingBottom: "5px" }}>
         {t.calculadora.Recibe}
       </div>
       <CurrencyRow

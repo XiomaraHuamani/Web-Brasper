@@ -56,7 +56,7 @@ const CurrencyRow = ({
   const currencyOptionsSelect = createSelectOptions(allCurrencies);
 
   return (
-    <div className="currency-row pb-2" style={{ marginBottom: "1.5rem" }}>
+    <div className="currency-row pb-2" style={{ marginBottom: "0.8rem" }}>
       <Select
         value={currencyOptionsSelect.find(
           (option) => option.value === selectedCurrency

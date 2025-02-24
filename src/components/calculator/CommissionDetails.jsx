@@ -12,7 +12,7 @@ const CommissionDetails = ({
   t,
 }) => {
   return (
-    <div className="row gy-4 mb-3 text-dark">
+    <div className="row gy-4 mb-2 text-dark">
       <div className="col-6">
         {/* <strong>
           {t.calculadora.Comisión} {commissionRateDisplay}:
