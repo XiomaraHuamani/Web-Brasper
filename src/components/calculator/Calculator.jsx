@@ -42,7 +42,7 @@ const currencyOptions = {
 };
 
 const getMaxAmount = (from, to) => {
-  if (from === "BRL" && to === "PEN") return 5000;
+  if (from === "BRL" && to === "PEN") return 6000;
   if (from === "PEN" && to === "BRL") return 20000;
   if (from === "BRL" && to === "USD") return 6000;
   if (from === "USD" && to === "BRL") return 10000;
@@ -214,26 +214,24 @@ const Calculator = () => {
   const calculate = (amount, isReceiveAmount = false) => {
     const key = `${fromCurrency}-${toCurrency}`;
     const rate = exchangeRates[key];
-
+  
     if (!rate) {
-      setCommission(0);
-      setCommissionRateDisplay(0);
-      setTax(0);
-      setTotalToSend(0);
-      setExchangeRate("N/A");
-      setErrorMessage("Tipo de cambio no disponible");
+      setErrorMessage("❌ Tipo de cambio no disponible");
       resetCalculations();
       return;
     }
-
+  
     const parsedAmount = parseFloat(amount);
     if (isNaN(parsedAmount)) return;
-
+  
     const maxAmount = getMaxAmount(fromCurrency, toCurrency);
     const minAmount = getMinAmount(fromCurrency, toCurrency);
-
-    if (parsedAmount <= minAmount) {
-      setErrorMessage(`El monto mínimo permitido es ${minAmount}`);
+  
+    console.log(`🔍 Min: ${minAmount}, Max: ${maxAmount}, Ingresado: ${parsedAmount}`);
+  
+    // ✅ Validación del monto mínimo
+    if (parsedAmount < minAmount) {
+      setErrorMessage(`⚠️ El monto mínimo permitido es ${minAmount}`);
       setCommission(0);
       setCommissionRateDisplay(0);
       setTax(0);
@@ -241,93 +239,80 @@ const Calculator = () => {
       setExchangeRate(0);
       return;
     }
-
-    if (parsedAmount >= maxAmount) {
-      setErrorMessage(`El monto máximo permitido es ${maxAmount}`);
-      setCommission(0);
-      setCommissionRateDisplay(0);
-      setTax(0);
-      setTotalToSend(0);
-      setExchangeRate(0);
-      return;
-    }
-  setErrorMessage("");
-
+  
+    setErrorMessage("");
+  
     const taxRate = 0.18;
     let commissionRate;
     let amountSendCalc, amountReceiveCalc;
-
+  
     if (isReceiveAmount) {
-      // Cálculo basado en Monto a Recibir
+      // 🔹 El usuario ingresa cuánto quiere recibir, calculamos cuánto tiene que enviar
       amountSendCalc = parsedAmount / rate;
       commissionRate = calculateCommissionRate(amountSendCalc, key);
-
       const commissionAndTaxRate = commissionRate * (1 + taxRate);
       amountSendCalc = parsedAmount / (rate * (1 - commissionAndTaxRate));
-
-      if (amountSendCalc < 100) {
+  
+      console.log(`💰 Cálculo inverso → Enviar: ${amountSendCalc}`);
+  
+      // ✅ Validar con el límite de envío
+      if (amountSendCalc > getMaxAmount(fromCurrency, toCurrency)) {
+        setErrorMessage(`⚠️ El monto máximo permitido es ${getMaxAmount(fromCurrency, toCurrency)}`);
         setCommission(0);
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
-        setExchangeRate(rate.toFixed(2));
-        setErrorMessage("El monto mínimo es 100");
-        resetCalculations();
+        setExchangeRate(0);
         return;
-      } else {
-        setErrorMessage("");
       }
-
+  
       commissionRate = calculateCommissionRate(amountSendCalc, key);
       setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
-
+  
       const commissionAmount = amountSendCalc * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const totalToSendCalc = amountSendCalc - commissionAmount - taxAmount;
-
+  
       setCommission(commissionAmount.toFixed(2));
       setTax(taxAmount.toFixed(2));
       setTotalToSend(totalToSendCalc.toFixed(2));
       setExchangeRate(rate.toFixed(3));
       setAmountSend(amountSendCalc.toFixed(2));
     } else {
-      // Cálculo basado en Monto a Enviar
-      if (parsedAmount < 100) {
+      // 🔹 El usuario ingresa cuánto quiere enviar, calculamos cuánto recibirá
+      if (parsedAmount > maxAmount) {
+        setErrorMessage(`⚠️ El monto máximo permitido es ${maxAmount}`);
         setCommission(0);
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
-        setExchangeRate(rate.toFixed(2));
-        setErrorMessage("El monto mínimo es 100");
-        resetCalculations();
+        setExchangeRate(0);
         return;
-      } else {
-        setErrorMessage("");
       }
-
+  
       commissionRate = calculateCommissionRate(parsedAmount, key);
       setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
-
+  
       const commissionAmount = parsedAmount * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const total = parsedAmount - commissionAmount - taxAmount;
-      //const received = total * rate;
       amountReceiveCalc = total * rate;
-
-      if (amountReceiveCalc >= getMaxAmount(toCurrency, fromCurrency)) {
-        setErrorMessage(`El monto máximo permitido es ${getMaxAmount(toCurrency, fromCurrency)}`);
-        resetCalculations();
-        return;
-      }
-
+  
+      console.log(`💰 Cálculo normal → Recibe: ${amountReceiveCalc}`);
+  
       setCommission(commissionAmount.toFixed(2));
       setTax(taxAmount.toFixed(2));
       setTotalToSend(total.toFixed(2));
       setExchangeRate(rate.toFixed(3));
-      //setAmountReceive(received.toFixed(2));
       setAmountReceive(amountReceiveCalc.toFixed(2));
     }
   };
+  
+  
+
+
+
+
 
   const resetCalculations = () => {
     setCommission(0);
