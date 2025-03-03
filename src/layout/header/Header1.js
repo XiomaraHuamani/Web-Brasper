@@ -20,27 +20,27 @@ const Header1 = () => {
               <Menu />
             </div>
 
-            <div className="btns">
+            {/* <div className="btns">
               <Link legacyBehavior href="login">
                 <a style={{ color: "white" }}>
                   . 
                 </a>
               </Link>
-            </div>
-            {/* <div className="menu-btns">
+            </div> */}
+            <div className="menu-btns">
               <Link legacyBehavior href="login">
                 <a className="theme-btn">
                   {t.header.login} <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
-            </div> */}
-           {/*  <div className="menu-btns">
+            </div>
+            <div className="menu-btns">
               <Link legacyBehavior href="/singup">
                 <a className="theme-btn style-three">
                   Registrate <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

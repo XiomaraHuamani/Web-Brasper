@@ -187,12 +187,7 @@ const DeskTopMenu = () => {
             <Link href="/about">{t.navbar.about}</Link>{" "}
           </li>
 
-          {/* <li className="dropdown">
-            <Link href="#">{t.navbar.howItWorks}</Link>{" "}
-          </li>
-          <li className="dropdown">
-            <Link href="#">{t.navbar.services}</Link>{" "}
-          </li>{" "} */}
+        
           <li className="dropdown">
             <Link href="blog">{t.navbar.blog}</Link>
           </li>
@@ -204,28 +199,7 @@ const DeskTopMenu = () => {
               {t.navbar.banks}
             </a>
           </li>
-          <li className="dropdown language-selector">
-            {languageOptions.map((lang) => (
-              <button
-                key={lang.value}
-                onClick={() => changeLocale(lang.value)}
-                className={locale === lang.value ? "active" : ""}
-                title={lang.label}
-              >
-                <img src={lang.flag} alt={lang.label} />
-              </button>
-            ))}
-          </li>
-          <li className="dropdown">
-              <Link href="/login" onClick={() => active("login")}>
-                {t.header.login} <i className="fas fa-long-arrow-right" />
-              </Link>
-            </li>
-            <li className="dropdown">
-              <Link href="/singup" onClick={() => active("singup")}>
-                Registrate <i className="fas fa-long-arrow-right" />
-              </Link>
-            </li>
+          
         </ul>
       </div>
     </nav>
