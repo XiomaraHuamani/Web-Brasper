@@ -28,14 +28,14 @@ const Header1 = () => {
               </Link>
             </div> */}
             <div className="menu-btns">
-              <Link legacyBehavior href="login">
+              <Link legacyBehavior href="https://dash.braspertransferencias.org/login">
                 <a className="theme-btn">
                   {t.header.login} <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
             </div>
             <div className="menu-btns">
-              <Link legacyBehavior href="/singup">
+              <Link legacyBehavior href="https://dash.braspertransferencias.org/register">
                 <a className="theme-btn style-three">
                   Registrate <i className="fas fa-long-arrow-right" />
                 </a>
