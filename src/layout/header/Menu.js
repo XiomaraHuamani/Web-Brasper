@@ -216,6 +216,16 @@ const DeskTopMenu = () => {
               </button>
             ))}
           </li>
+          <li className="dropdown">
+              <Link href="/login" onClick={() => active("login")}>
+                {t.header.login} <i className="fas fa-long-arrow-right" />
+              </Link>
+            </li>
+            <li className="dropdown">
+              <Link href="/singup" onClick={() => active("singup")}>
+                Registrate <i className="fas fa-long-arrow-right" />
+              </Link>
+            </li>
         </ul>
       </div>
     </nav>
