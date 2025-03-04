@@ -1,99 +1,86 @@
+"use client";
+
 import PageBanner from "@/components/PageBanner";
 import Layout from "@/layout";
-import Link from "next/link";
-
+import { useState } from "react";
+import blogPosts from "@/pages/data/blogPosts";
 const Blog = () => {
+  const [selectedPost, setSelectedPost] = useState(null);
+
   return (
     <Layout>
       <PageBanner pageName={"Blogs Brasper"} />
-      <section className="blog-standard-area py-130 rpy-100">
-        <div className="container">
-          <div className="row gap-60">
-            <div className="col-lg-8">
-              <div className="blog-standard-inner">
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
-                  <div className="image">
+
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          {selectedPost ? (
+            <article className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="text-blue-600 hover:underline mb-6 flex items-center"
+              >
+                ← Volver al Blog
+              </button>
+              <p className="text-gray-500 text-sm mb-4">{selectedPost.date}</p>
+              <h1 className="text-4xl font-bold mb-4">{selectedPost.title}</h1>
+              <div className="prose prose-lg max-w-full text-gray-700 space-y-4">
+                {selectedPost.content.map((item, index) => {
+                  if (item.type === "title") {
+                    return <h4 key={index} className="text-2xl font-bold">{item.text}</h4>;
+                  }
+                  if (item.type === "subtitle") {
+                    return <h6 key={index} className="text-xl font-semibold">{item.text}</h6>;
+                  }
+                  if (item.type === "paragraph") {
+                    return <p key={index}>{item.text}</p>;
+                  }
+                  if (item.type === "list") {
+                    return (
+                      <ul key={index} className="list-disc ml-6 space-y-1">
+                        {item.items.map((listItem, i) => (
+                          <li key={i} dangerouslySetInnerHTML={{ __html: listItem }}></li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+              <div className="image">
                     <img
-                      src="assets/images/blog/blog-standard1.jpg"
+                      src="assets/images/blog/blogs.jpg"
                       alt="Blog"
+                      width={300}
+                      height='auto'
                     />
                   </div>
-                  <div className="content">
-                    <div className="blog-meta-two mb-5">
-                      <Link legacyBehavior href="/blog">
-                        <a className="tag">Informativo</a>
-                      </Link>
-                    </div>
-                    <h4>
-                      <Link legacyBehavior href="blog-details">
-                        La mejor forma de hacer tranferencias
-                      </Link>
-                    </h4>
-                    <p>
-                      Realiza transferencias de forma segura, cómoda y rápida
-                      con Brasper
-                    </p>
-                    <div className="blog-meta-two">
-                      <a className="date" href="#">
-                        <i className="far fa-calendar-alt" /> Junio 26, 2024
-                      </a>
-                    </div>
-                    <hr />
-                  </div>
+            </article>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8">
+              {blogPosts.map((post) => (
+                <div
+                  key={post.slug}
+                  className="rounded-lg shadow-md overflow-hidden cursor-pointer bg-white hover:shadow-xl transition p-6"
+                  onClick={() => setSelectedPost(post)}
+                >
+                  <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                  <p className="text-gray-600">{post.excerpt}</p>
+                  <p className="text-gray-400 text-sm mb-4">{post.date}</p>
+                  <a className="text-blue-600 block font-medium">Leer más →</a>
+                  
                 </div>
-              </div>
+                
+              ))}
+              
             </div>
-            <div className="col-lg-4 col-md-7 col-sm-9">
-              <div className="main-sidebar rmt-75">
-                <div className="widget widget-recent-news wow fadeInUp delay-0-2s">
-                  <h4 className="widget-title">Noticias Nuevas</h4>
-                  <ul>
-                    <li>
-                      <div className="image">
-                        <img src="assets/images/widgets/news3.jpg" alt="News" />
-                      </div>
-                      <div className="content">
-                        <h5>
-                          <Link legacyBehavior href="blog-details">
-                            El dolar bajo
-                          </Link>
-                        </h5>
-                        <span className="date">
-                          <i className="far fa-calendar-alt" />
-                          <a href="#">25 Julio 2024</a>
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="widget widget-cta wow fadeInUp delay-0-2s">
-                  <h4>Haz transferencia segura con Brasper</h4>
-                  <Link legacyBehavior href="https://rb.gy/vjpce3">
-                    <a
-                      className="theme-btn style-two"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Contáctanos <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
-                  <img src="assets/images/widgets/cta.png" alt="CTA" />
-                  <img
-                    className="cta-bg-line"
-                    src="assets/images/widgets/cta-bg-line.png"
-                    alt="CTA bg line"
-                  />
-                  <img
-                    className="cta-bg-dots"
-                    src="assets/images/widgets/cta-bg-dots.png"
-                    alt="CTA bg Dots"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+
+          )}
         </div>
       </section>
+
+      <footer className="bg-gray-900 text-white text-center py-4">
+        © 2025 Brasper. Todos los derechos reservados.
+      </footer>
     </Layout>
   );
 };
