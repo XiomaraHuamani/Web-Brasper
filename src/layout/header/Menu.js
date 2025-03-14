@@ -100,9 +100,6 @@ const MobileMenu = () => {
               </Link>
             </li>
             <li className="dropdown">
-              <Link href="/about">{t.navbar.banks}</Link>
-            </li>
-            <li className="dropdown">
               <Link href="/about">{t.navbar.about}</Link>
             </li>
             <li className="dropdown">
@@ -185,21 +182,38 @@ const DeskTopMenu = () => {
           </li>
           <li className="dropdown">
             <Link href="/about">{t.navbar.about}</Link>{" "}
+            {/* Traducción de "¿Quiénes somos?" */}
           </li>
-
-        
+          {/* <li className="dropdown">
+            <Link href="#">{t.navbar.howItWorks}</Link>{" "}
+          </li>
+          <li className="dropdown">
+            <Link href="#">{t.navbar.services}</Link>{" "}
+          </li>{" "} */}
           <li className="dropdown">
             <Link href="blog">{t.navbar.blog}</Link>
-          </li>
+          </li>{" "}
           <li className="dropdown">
-            <a href="#" onClick={(e) => {
-              e.preventDefault();
-              scrollToBancos();
-            }}>
+            <button
+              onClick={scrollToBancos}
+              className="bg-transparent border-none text-white cursor-pointer"
+            >
               {t.navbar.banks}
-            </a>
+            </button>
           </li>
-          
+          {/* Selector de idioma */}
+          <li className="dropdown language-selector">
+            {languageOptions.map((lang) => (
+              <button
+                key={lang.value}
+                onClick={() => changeLocale(lang.value)}
+                className={locale === lang.value ? "active" : ""}
+                title={lang.label}
+              >
+                <img src={lang.flag} alt={lang.label} />
+              </button>
+            ))}
+          </li>
         </ul>
       </div>
     </nav>
