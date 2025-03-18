@@ -32,7 +32,7 @@ const Layout = ({ children, header }) => {
         <Footer />
       </div>
       {/* Renderizar el Popup solo si está abierto */}
-      <Popup isOpen={isPopupOpen} onClose={closePopup} />
+    {/*   <Popup isOpen={isPopupOpen} onClose={closePopup} /> */}
       <ChatBot />
     </Fragment>
   );
