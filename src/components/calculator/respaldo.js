@@ -26,7 +26,7 @@ const Calculator = () => {
   const fetchExchangeRates = async () => {
     try {
       const response = await fetch(
-        "https://api.brasper.site/api/v1/coin/exchange-rates/",
+        "https://pro.brasper.site/api/v1/coin/exchange-rates/",
         {
           method: "GET",
           headers: {
@@ -67,7 +67,7 @@ const Calculator = () => {
   const fetchCommissionRates = async () => {
     try {
       const response = await fetch(
-        "https://api.brasper.site/api/v1/coin/commissions/",
+        "https://pro.brasper.site/api/v1/coin/commissions/",
         {
           method: "GET",
           headers: {
