@@ -26,7 +26,7 @@ const Users = () => {
   // Función para obtener los usuarios desde el endpoint
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`https://api.brasper.site/api/v1/auth/staff/register/`);
+      const response = await axios.get(`https://pro.brasper.site/api/v1/auth/staff/register/`);
       const verifiedUsers = response.data.data;
       console.log(verifiedUsers);
       setUsers(verifiedUsers);

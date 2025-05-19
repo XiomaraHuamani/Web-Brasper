@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Layout from "../layout";
 import axios from "axios";
 
-const API_URL = "https://api.brasper.site/api/v1/coin/exchange-rates/";
+const API_URL = "https://pro.brasper.site/api/v1/coin/exchange-rates/";
 
 // Mapeo de los IDs de las monedas a sus nombres
 const currencyMap = {
